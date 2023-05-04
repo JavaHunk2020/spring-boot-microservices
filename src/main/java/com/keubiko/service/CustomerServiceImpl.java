@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.keubiko.dao.CustomerRepository;
 import com.keubiko.dao.entity.SignupEntity;

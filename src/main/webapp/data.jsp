@@ -11,6 +11,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript">
+          function deleteByAjax(username,itemId){
+        	  //          <a href="dsignup?username=${item.username}">
+			  //Ajax call 
+        	  alert(username);
+        	  window.fetch('http://localhost:8080/v2/dsignup/'+username, { method: 'DELETE' })
+        	    .then(res=>res.json()).then(data=>{
+        	    	//Hiding then row from front end
+        	    	//$("#signup_"+itemId).hide();
+        	    	//document.getElementById("signup_"+itemId)
+        	    	 //Hiding element 
+        	    	 document.getElementById("signup_"+itemId).style.display = 'none';
+        	    });
+          }
+  
+  </script>
+  
 </head>
 <body>
    <header style="background-color: yellow;height: 30px;">
@@ -36,15 +54,14 @@
     <tbody>
     
      <c:forEach items="${sajana}" var="item">
-      <tr>
+      <tr id="signup_${item.cid}">
         <td>${item.username}</td>
         <td>${item.password}</td>
         <td>${item.email}</td>
         <td>${item.doe}</td>
          <td>
-          <a href="dsignup?username=${item.username}">
-              		 <button type="button" class="btn btn-danger">DELETE</button>
-               </a>
+              		 <button onclick="deleteByAjax('${item.username}',${item.cid})" 
+              		 type="button" class="btn btn-danger">DELETE</button>
                 &nbsp;&nbsp;
                   <a href="esignup?cid=${item.cid}">
               		 <button type="button" class="btn btn-primary">Edit</button>

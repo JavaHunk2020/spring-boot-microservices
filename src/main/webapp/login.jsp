@@ -12,75 +12,32 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
   <script>
+    //function definition with out name
+    let add = function(num1,num2){
+    	  return num1+num2;
+    };
+    
+    let ue=add(12,3);
+     result=ajax(10,20,add);
+    //Here we are passing function definition
+    //as a parater
+    result=ajax(10,20,function(num1,num2){
+    	  return num1+num2;
+    });
+    
+    result=ajax(10,20,function(num1,num2){
+  	       return num1*num2;
+      });
+    
+     result=ajax(10,20,(num1,num2)=>num1+num2);
   
-      
-     function  add(num1,num2){
-    	 return num1+num2;
-     }
-     
-     let result=add(12,23);
-     console.log(result);
-     
-     //Anonymous function
-     
-     var eat = function(num1,num2) {
-    	               return num1+num2; 
-                 };
-      console.log(eat);           
-      console.info(eat(10,40));
-      
-      //Fat Arrow Function
-      var gee = (num1,num2)=>num1+num2;
-      console.log(gee);           
-      console.info(gee(10,40));
-    //undefined -- primitive type which takes only one value which is undefined
-    //boolean is data type which takes only two values which is true or false
-     let name=undefined;
-     console.log(name);
-     if(name===undefined){
-    	 console.log("Ahahah");
-     }
-     
-     console.log(typeof name); //undefined
-     if(!name){
-    	console.log("Name = "+name); 
-     }
-     
-     let pk =100; 
-     console.log(typeof pk); //number
-     let pname=null;
-     console.log(typeof null); //null -- object
-     if(pname===name){
-    	 console.log("pname==name"+(pname==name));
-     }else{
-    	 console.log("Kakaka  = ");
-     }
-	
-     let obj={};  //in JavaScript object is combination of key and values
-     console.log(obj);
-     obj.name="Nagendra";
-     obj.email="nagen@gmail.com";
-     console.log(obj);
-     
-     class  Customer {
-    	 constructor(name,email,ssn) {
-    		//this={}; 
-		    this.name=name;
-		    this.email=email;
-		    this.ssn=ssn;
-		 }
-    	 
-    	 info() {
-    		 console.log("name = "+this.name);
-    		 console.log("email = "+this.email);
-    		 console.log("ssn = "+this.ssn);
-    	 }
-     }
-     
-     //es6
-     let customer =new Customer("Nagendra","nagen@gmail.com","022-229-222");
-     customer.info();
-     
+    console.log(result);
+    
+    //Named function
+    //this function is taking three parameters
+    function ajax(x,y,callback){
+    	return callback(x,y);
+    }
      
   </script>
   
