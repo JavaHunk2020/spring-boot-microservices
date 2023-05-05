@@ -7,4 +7,6 @@ WORKDIR /technohunk444
 
 COPY target/auth-service-boot2x.war /technohunk444/auth-service-boot2x.war
 
+expose 8080
+
 ENTRYPOINT ["java", "-jar", "/technohunk444/auth-service-boot2x.war"]
