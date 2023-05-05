@@ -1,6 +1,13 @@
 version: "3.8"
 
 services:
+  mysqldb:
+    container_name: mysqldb-container
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql@1234
+      MYSQL_DATABASE: kuebiko_db
+
   auth-service-rest-api:
     container_name: auth-service-rest-api-container
     build:
@@ -8,4 +15,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9999:8080"
+    depends_on:
+      - mysqldb
     restart: on-failure

@@ -17,7 +17,7 @@
         	  //          <a href="dsignup?username=${item.username}">
 			  //Ajax call 
         	  alert(username);
-        	  window.fetch('http://localhost:8080/v2/dsignup/'+username, { method: 'DELETE' })
+        	  window.fetch('v2/dsignup/'+username, { method: 'DELETE' })
         	    .then(res=>res.json()).then(data=>{
         	    	//Hiding then row from front end
         	    	//$("#signup_"+itemId).hide();
